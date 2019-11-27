@@ -1,0 +1,38 @@
+<form>
+
+    <form (ngSubmit)="onSubmit()" #form="ngForm">
+
+    <div class="form-group">
+        <label for="formGroupExampleInput">Nazwa kredytu</label>
+        <input type="text" [(ngModel)]="credit.creditName" name="creditName" #creditName="ngModel" class="form-control" required minlength="2" placeholder="Hipoteczny">
+        <div *ngIf="creditName.invalid && (creditName.dirty || creditName.touched)" class="alert alert-danger">Nieprawidłowa nazwa kredytu</div>
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput">Imię</label>
+        <input type="text" [(ngModel)]="customer.firstName" name="firstName" #firstName="ngModel" class="form-control" required minlength="2" placeholder="Jan">
+        <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">Nieprawidłowe imię</div>
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput">Nazwisko</label>
+        <input type="text" [(ngModel)]="customer.surname" name="surname" #surname="ngModel" class="form-control" required minlength="2" placeholder="Nowak">
+        <div *ngIf="surname.invalid && (surname.dirty || surname.touched)" class="alert alert-danger">Nieprawidłowe nazwisko</div>
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput">Pesel</label>
+        <input type="text" [(ngModel)]="customer.pesel" name="pesel" #pesel="ngModel" class="form-control" required minlength="11" maxlength="11" placeholder="83091837997">
+        <div *ngIf="pesel.invalid && (pesel.dirty || pesel.touched)" class="alert alert-danger">Nieprawidłowy pesel</div>
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput">Nazwa produktu</label>
+        <input type="text" [(ngModel)]="product.productName" name="productName" #productName="ngModel" class="form-control" required minlength="2" placeholder="Na mieszkanie">
+        <div *ngIf="productName.invalid && (productName.dirty || productName.touched)" class="alert alert-danger">Nieprawidłowa nazwa produktu</div>
+    </div>
+    <div class="form-group">
+        <label for="formGroupExampleInput">Wartość</label>
+        <input type="value" [(ngModel)]="product.value" name="value" #value="ngModel" class="form-control" required minlength="2" placeholder="400000">
+        <div *ngIf="value.invalid && (value.dirty || value.touched)" class="alert alert-danger">Nieprawidłowa wartość</div>
+    </div>
+
+    <button type="submit" [disabled]="form.invalid && (form.dirty || form.touched)">Zapisz</button>
+
+</form>

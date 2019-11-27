@@ -1,0 +1,29 @@
+<div class="container">
+    <div *ngIf="credits == undefined || credits.length === 0">Brak kredytów w bazie</div>
+      <table class="table table-hover" *ngIf="credits != undefined && credits.length > 0">
+          <thead>
+            <tr>
+              <th scope="col">Id</th>
+              <th scope="col">Nazwa kredytu</th>
+              <!--<th scope="col">Imię</th>
+              <th scope="col">Nazwisko</th>
+              <th scope="col">Pesel</th>
+              <th scope="col">Nazwa kredytu</th>
+              <th scope="col">Nazwa produktu</th>
+              <th scope="col">Wartość</th>-->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let credit of credits">
+              <th scope="row">{{credit.creditId}}</th>
+              <td>{{credit.creditName}}</td>
+              <!--<td>{{customer.firstName}}</td>
+              <td>{{customer.surname}}</td>
+              <td>{{customer.pesel}}</td>
+              <td>{{credit.creditName}}</td>
+              <td>{{product.productName}}</td>
+              <td>{{product.value}}</td>-->
+            </tr>
+          </tbody>
+      </table>
+  </div>
